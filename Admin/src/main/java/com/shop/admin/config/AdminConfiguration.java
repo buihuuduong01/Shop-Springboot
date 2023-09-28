@@ -48,7 +48,9 @@ public class AdminConfiguration {
         http
                 .authorizeHttpRequests()
                 //Cấu hình cho việc truy cập các tài nguyên trong static
-                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                //.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                .requestMatchers("/*", "/static/**").permitAll()
+
                 // quyền truy cập đối với các URL bắt đầu bằng "/admin/**"
                 .requestMatchers("/admin/**").hasAuthority("ADMIN")
                 .requestMatchers("/register","/forgot-password","/register-new").permitAll()
