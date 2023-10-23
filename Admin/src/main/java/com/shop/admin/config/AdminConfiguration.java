@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -35,7 +36,7 @@ public class AdminConfiguration {
 
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity  http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder
                 = http.getSharedObject(AuthenticationManagerBuilder.class);
 
@@ -46,32 +47,33 @@ public class AdminConfiguration {
         AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
 
         http
-                .authorizeHttpRequests()
-                //Cấu hình cho việc truy cập các tài nguyên trong static
-                //.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .requestMatchers("/*", "/static/**").permitAll()
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests( author ->
+                        author.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                                .requestMatchers("/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("/forgot-password", "/register", "/register-new").permitAll()
+                                .anyRequest().authenticated()
 
-                // quyền truy cập đối với các URL bắt đầu bằng "/admin/**"
-                .requestMatchers("/admin/**").hasAuthority("ADMIN")
-                .requestMatchers("/register","/forgot-password","/register-new").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/do-login")
-                .defaultSuccessUrl("/index")
-
-                .permitAll()
-                .and()
-                .logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout")
-                .permitAll()
-                .and()
+                )
+                .formLogin(login ->
+                        login.loginPage("/login")
+                                .loginProcessingUrl("/do-login")
+                                .defaultSuccessUrl("/index", true)
+                                .permitAll()
+                )
+                .logout(logout ->
+                        logout.invalidateHttpSession(true)
+                                .clearAuthentication(true)
+                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                                .logoutSuccessUrl("/login?logout")
+                                .permitAll()
+                )
                 .authenticationManager(authenticationManager)
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+                )
         ;
         return http.build();
     }
+
 }

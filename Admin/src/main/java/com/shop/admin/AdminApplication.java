@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(scanBasePackages = "com.shop.library.*")
+@SpringBootApplication(scanBasePackages = {"com.shop.library.*","com.shop.admin.*"})
 @EnableJpaRepositories(value = "com.shop.library.repository")
 @EntityScan(value = "com.shop.library.model")
-@ComponentScan(basePackages = "com.shop")
+//@ComponentScan(basePackages = "com.shop")
 public class AdminApplication {
 
     public static void main(String[] args) {

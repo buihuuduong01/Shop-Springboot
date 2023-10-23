@@ -10,34 +10,18 @@
   <link rel="shortcut icon" type="image/x-icon" href="img\favicon.png">
 
   <!-- all css here -->
-  <link rel="stylesheet" href="css\bootstrap.min.css">
-  <link rel="stylesheet" href="css\plugin.css">
-  <link rel="stylesheet" href="css\bundle.css">
-  <link rel="stylesheet" href="css\style.css">
-  <link rel="stylesheet" href="css\responsive.css">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/plugin.css}">
+  <link rel="stylesheet" th:href="@{/css/bundle.css}">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/responsive.css}">
 </head>
 <body>
 <!--header top-->
 <div th:fragment="header-top" class="header_top">
   <div class="row align-items-center">
     <div class="col-lg-6 col-md-6">
-      <div class="switcher">
-        <ul>
-          <li class="languages"><a href="#"><img src="img\logo\fontlogo.jpg" alt=""> English <i class="fa fa-angle-down"></i></a>
-            <ul class="dropdown_languages">
-              <li><a href="#"><img src="img\logo\fontlogo.jpg" alt=""> English</a></li>
-              <li><a href="#"><img src="img\logo\fontlogo2.jpg" alt=""> French </a></li>
-            </ul>
-          </li>
 
-          <li class="currency"><a href="#"> Currency : $ <i class="fa fa-angle-down"></i></a>
-            <ul class="dropdown_currency">
-              <li><a href="#"> Dollar (USD)</a></li>
-              <li><a href="#"> Euro (EUR)  </a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
     </div>
     <div class="col-lg-6 col-md-6">
       <div class="header_links">
@@ -59,7 +43,7 @@
     <!--logo start-->
     <div class="col-lg-3 col-md-3">
       <div class="logo">
-        <a href="index.html"><img src="img\logo\logo.jpg.png" alt=""></a>
+        <a th:href="@{/}"><img th:src="@{/img/logo/logo.jpg.png}" alt=""></a>
       </div>
     </div>
     <!--logo end-->
@@ -91,7 +75,7 @@
             </div>
             <div class="cart_item">
               <div class="cart_img">
-                <a href="#"><img src="img\cart\cart2.jpg" alt=""></a>
+                <a href="#"><img th:src="@{/img/cart/cart2.jpg}" alt=""></a>
               </div>
               <div class="cart_info">
                 <a href="#">Quisque ornare dui</a>
@@ -129,90 +113,12 @@
         <div class="main_menu d-none d-lg-block">
           <nav>
             <ul>
-              <li class="active"><a href="index.html">Home</a>
+              <li class="active"><a th:href="@{/}">Home</a>
 
               </li>
-              <li><a href="shop.html">shop</a>
+              <li><a th:href="@{/shop}">shop</a>
 
               </li>
-              <li><a href="#">women</a>
-                <div class="mega_menu">
-                  <div class="mega_top fix">
-                    <div class="mega_items">
-                      <h3><a href="#">Accessories</a></h3>
-                      <ul>
-                        <li><a href="#">Cocktai</a></li>
-                        <li><a href="#">day</a></li>
-                        <li><a href="#">Evening</a></li>
-                        <li><a href="#">Sundresses</a></li>
-                        <li><a href="#">Belts</a></li>
-                        <li><a href="#">Sweets</a></li>
-                      </ul>
-                    </div>
-                    <div class="mega_items">
-                      <h3><a href="#">HandBags</a></h3>
-                      <ul>
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Hats and Gloves</a></li>
-                        <li><a href="#">Lifestyle</a></li>
-                        <li><a href="#">Bras</a></li>
-                        <li><a href="#">Scarves</a></li>
-                        <li><a href="#">Small Leathers</a></li>
-                      </ul>
-                    </div>
-                    <div class="mega_items">
-                      <h3><a href="#">Tops</a></h3>
-                      <ul>
-                        <li><a href="#">Evening</a></li>
-                        <li><a href="#">Long Sleeved</a></li>
-                        <li><a href="#">Shrot Sleeved</a></li>
-                        <li><a href="#">Tanks and Camis</a></li>
-                        <li><a href="#">Sleeveless</a></li>
-                        <li><a href="#">Sleeveless</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="mega_bottom fix">
-                    <div class="mega_thumb">
-                      <a href="#"><img src="img\banner\banner1.jpg" alt=""></a>
-                    </div>
-                    <div class="mega_thumb">
-                      <a href="#"><img src="img\banner\banner2.jpg" alt=""></a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li><a href="#">men</a>
-                <div class="mega_menu">
-                  <div class="mega_top fix">
-                    <div class="mega_items">
-                      <h3><a href="#">Rings</a></h3>
-                      <ul>
-                        <li><a href="#">Platinum Rings</a></li>
-                        <li><a href="#">Gold Ring</a></li>
-                        <li><a href="#">Silver Ring</a></li>
-                        <li><a href="#">Tungsten Ring</a></li>
-                        <li><a href="#">Sweets</a></li>
-                      </ul>
-                    </div>
-                    <div class="mega_items">
-                      <h3><a href="#">Bands</a></h3>
-                      <ul>
-                        <li><a href="#">Platinum Bands</a></li>
-                        <li><a href="#">Gold Bands</a></li>
-                        <li><a href="#">Silver Bands</a></li>
-                        <li><a href="#">Silver Bands</a></li>
-                        <li><a href="#">Sweets</a></li>
-                      </ul>
-                    </div>
-                    <div class="mega_items">
-                      <a href="#"><img src="img\banner\banner3.jpg" alt=""></a>
-                    </div>
-                  </div>
-
-                </div>
-              </li>
-
               <li>
                 <a href="blog.html">blog</a>
 
@@ -237,32 +143,32 @@
     <div class="brand_active owl-carousel">
       <div class="col-lg-2">
         <div class="single_brand">
-          <a href="#"><img src="img\brand\brand1.jpg" alt=""></a>
+          <a href="#"><img th:src="@{/img/brand/brand1.jpg}" alt=""></a>
         </div>
       </div>
       <div class="col-lg-2">
         <div class="single_brand">
-          <a href="#"><img src="img\brand\brand2.jpg" alt=""></a>
+          <a href="#"><img th:src="@{/img/brand/brand2.jpg}" alt=""></a>
         </div>
       </div>
       <div class="col-lg-2">
         <div class="single_brand">
-          <a href="#"><img src="img\brand\brand3.jpg" alt=""></a>
+          <a href="#"><img th:src="@{/img/brand/brand3.jpg}" alt=""></a>
         </div>
       </div>
       <div class="col-lg-2">
         <div class="single_brand">
-          <a href="#"><img src="img\brand\brand4.jpg" alt=""></a>
+          <a href="#"><img th:src="@{/img/brand/brand4.jpg}" alt=""></a>
         </div>
       </div>
       <div class="col-lg-2">
         <div class="single_brand">
-          <a href="#"><img src="img\brand\brand5.jpg" alt=""></a>
+          <a href="#"><img th:src="@{/img/brand/brand5.jpg}" alt=""></a>
         </div>
       </div>
       <div class="col-lg-2">
         <div class="single_brand">
-          <a href="#"><img src="img\brand\brand6.jpg" alt=""></a>
+          <a href="#"><img th:src="@{/img/brand/brand6.jpg}" alt=""></a>
         </div>
       </div>
     </div>
@@ -461,12 +367,12 @@
 <!-- modal area end -->
 
 <div th:fragment="script">
-  <script src="js\vendor\jquery-1.12.0.min.js"></script>
-  <script src="js\popper.js"></script>
-  <script src="js\bootstrap.min.js"></script>
-  <script src="js\ajax-mail.js"></script>
-  <script src="js\plugins.js"></script>
-  <script src="js\main.js"></script>
+  <script th:src="@{/js/vendor/jquery-1.12.0.min.js}"></script>
+  <script th:src="@{js/popper.js}"></script>
+  <script th:src="@{js/bootstrap.min.js}"></script>
+  <script th:src="@{js/ajax-mail.js}"></script>
+  <script th:src="@{js/plugins.js}"></script>
+  <script th:src="@{/js/main.js}"></script>
 </div>
 
 </body>

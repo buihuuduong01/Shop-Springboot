@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,6 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class CustomerConfiguration {
+
     @Bean
     public UserDetailsService userDetailsService() {
         return new CustomerServiceConfig();
@@ -24,6 +26,7 @@ public class CustomerConfiguration {
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -38,8 +41,8 @@ public class CustomerConfiguration {
 
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/**", "/js/**", "/css/**", "/img/**", "/fonts/**").permitAll()
-                //.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                .requestMatchers("/**", "/js/**", "/css/**", "/img/**", "/dist/**", "/less/**", "/pages/**"
+                        , "/scss/**", "/vendor/**").permitAll()
                 .requestMatchers("/customer/**").hasAuthority("CUSTOMER")
                 .and()
                 .formLogin()
@@ -61,4 +64,5 @@ public class CustomerConfiguration {
         ;
         return http.build();
     }
+
 }

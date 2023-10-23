@@ -135,6 +135,8 @@ public class ProductServiceImpl implements ProductService {
         return products;
     }
 
+
+
     private Page toPage(List<ProductDto> list , Pageable pageable){
         if(pageable.getOffset() >= list.size()){
             return Page.empty();
@@ -167,6 +169,16 @@ public class ProductServiceImpl implements ProductService {
         return productDtoList;
     }
 
+//customer
+@Override
+public List<Product> getAllProducts() {
+    return productRepository.getAllProducts();
+}
+
+    @Override
+    public Product getProductById(Long id) {
+        return productRepository.getById(id);
+    }
 
 
 }

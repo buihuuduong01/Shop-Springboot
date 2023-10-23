@@ -49,10 +49,10 @@
                         <td th:text="${iterStat.index + 1}"></td>
                         <td th:text="${category.name}"></td>
                         <td>
-                            <a id="editButton"
-                               th:href="@{/findById/(id = ${category.id})}"
-                               class="btn btn-primary">Update</a>
-<!--                            <a id="editButton" th:href="@{/findById(id=${category.id})}" class="btn btn-primary">Update</a>-->
+<!--                            <a id="editButton"-->
+<!--                               th:href="@{/findById/(id = ${category.id})}"-->
+<!--                               class="btn btn-primary">Update</a>-->
+                            <a id="editButton" th:href="@{/findById(id=${category.id})}" class="btn btn-primary">Update</a>
 
                         </td>
 <!--                        <td>-->

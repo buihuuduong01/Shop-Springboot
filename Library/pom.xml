@@ -64,10 +64,12 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>6.2.7.Final</version> <!-- Phiên bản Hibernate tùy chọn -->
 		</dependency>
-
-
-
-
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.1.0</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

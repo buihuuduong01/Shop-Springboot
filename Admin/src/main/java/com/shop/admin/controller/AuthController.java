@@ -29,6 +29,7 @@ public class AuthController {
     private AdminServiceImpl adminService;
 
 
+
     @RequestMapping("/login")
     public String login(Model model) {
         model.addAttribute("title", "Login Page");
@@ -70,7 +71,8 @@ public class AuthController {
                 return "register";
             }
             String username = adminDto.getUsername();
-            Admin admin = adminService.findByUsername(username);
+            Admin admin;
+            admin = adminService.findByUsername(username);
             if (admin != null){
                 model.addAttribute("adminDto",adminDto);
                 System.out.println("không có tài khoản này");
