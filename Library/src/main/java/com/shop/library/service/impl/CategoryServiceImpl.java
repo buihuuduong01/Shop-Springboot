@@ -1,6 +1,7 @@
 package com.shop.library.service.impl;
 
 
+import com.shop.library.dto.CategoryDto;
 import com.shop.library.model.Category;
 import com.shop.library.repository.CategoryRepository;
 import com.shop.library.service.CategoryService;
@@ -72,4 +73,11 @@ public Category update(Category category) {
     public List<Category> findAllByActivated() {
         return repo.findAllByActivatedTrue();
     }
+
+    @Override
+    public List<CategoryDto> getCategoryAndProduct() {
+        return repo.getCategoryAndProduct();
+    }
+
+
 }

@@ -1,5 +1,4 @@
 package com.shop.library.model;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,13 +16,13 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name = "shopping_cart_id", referencedColumnName = "shopping_cart_id")
-    private com.shop.library.model.ShoppingCart cart;
+    private ShoppingCart cart;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id", referencedColumnName = "product_id")
-    private com.shop.library.model.Product product;
+    private Product product;
     private int quantity;
     private double unitPrice;
 

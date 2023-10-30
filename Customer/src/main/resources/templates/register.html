@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments::head}">
+
+    <script src="js\vendor\modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+<!-- Add your site or application content here -->
+
+<!--pos page start-->
+<div class="pos_page">
+    <div class="container">
+        <!--pos page inner-->
+        <div class="pos_page_inner">
+            <!--header area -->
+            <div class="header_area">
+                <!--header top-->
+                <div th:replace="~{fragments::header-top}"></div>
+                <!--header top end-->
+
+                <!--header middel-->
+                <div th:replace="~{fragments::header-middel}"></div>
+                <!--header middel end-->
+
+                <!--header bottom-->
+                <div th:replace="~{fragments::header-bottom}"></div>
+            </div>
+            <!--header end -->
+            <!--breadcrumbs area start-->
+            <div class="breadcrumbs_area">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb_content">
+                            <ul>
+                                <li><a href="index.html">home</a></li>
+                                <li><i class="fa fa-angle-right"></i></li>
+                                <li>login</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--breadcrumbs area end-->
+
+            <!-- customer login start -->
+            <div class="customer_login d-flex justify-content-center">
+                <div class="form">
+                    <h2>Register</h2>
+                    <div th:if = "${success}">
+                        <p class = "alert alert-success" th:text = "${success}"></p>
+                    </div>
+                    <div th:if = "${error}">
+                        <p class = "alert alert-danger" th:text = "${error}"></p>
+                    </div>
+                    <form th:action = "@{/do-register}" method="POST" th:object = "${customerDto}">
+                        <div class="input-form">
+                            <div class="input-form">
+                                <input type="text" placeholder="First Name" name="firstname" th:field = "*{firstName}" required>
+                            </div>
+                            <div class="alert alert-danger" th:if = "${#fields.hasErrors('firstName')}"
+                                 th:errors = "*{firstName}"></div>
+                        </div>
+                        <div class="input-form">
+                            <div class="input-form">
+                                <!-- <span>User name</span> -->
+                                <input type="text" placeholder="Last Name" name="lastname" th:field = "*{lastName}" required>
+                                <div class="alert alert-danger" th:if = "${#fields.hasErrors('lastName')}"
+                                     th:errors = "*{lastName}"></div>
+                            </div>
+
+                            <div class="input-form">
+                                <div class="input-form">
+                                    <input type="email" placeholder="email" name="username" th:field = "*{username}" required>
+                                </div>
+                                <div class="input-form">
+                                    <input type="password" placeholder="Password" name="password" th:field = "*{password}" required>
+                                    <div class="alert alert-danger" th:if = "${#fields.hasErrors('password')}"
+                                         th:errors = "*{password}"></div>
+                                </div>
+                                <div class="input-form">
+                                    <input type="password" placeholder="Verify password" name="confirm" th:field = "*{confirmPassword}" required>
+                                </div>
+                                <div class="input-form">
+                                    <p>Do You Already Have An Account ? <a th:href = "@{/login}"> Sign in now </a></p>
+                                </div>
+                                <div class="input-form">
+                                    <input type="submit" value="Sign up">
+                                </div>
+                    </form>
+                </div>
+        </div>
+        <!-- customer login end -->
+
+    </div>
+    <!--pos page inner end-->
+</div>
+</div>
+<!--pos page end-->
+
+<!--footer area start-->
+<div th:replace="~{fragments::footer}"></div>
+<!--footer area end-->
+
+
+
+
+
+
+<!-- all js here -->
+<div th:replace="~{fragments::script}"></div>
+</body>
+</html>

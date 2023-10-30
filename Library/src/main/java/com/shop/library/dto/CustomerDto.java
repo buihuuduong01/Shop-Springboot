@@ -1,18 +1,14 @@
 package com.shop.library.dto;
-
 import com.shop.library.model.City;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerDto {
-
     @Size(min = 3, max = 10, message = "First name contains 3-10 characters")
     private String firstName;
 
@@ -30,4 +26,5 @@ public class CustomerDto {
     private City city;
     private String image;
     private String country;
+
 }

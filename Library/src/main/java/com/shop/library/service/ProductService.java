@@ -22,6 +22,11 @@ public interface ProductService {
 
 //    Customer
     List<Product> getAllProducts();
-Product getProductById(Long id);
+
+    Product getProductById(Long id);
+
+    List<Product> getRelatedProducts(Long categoryId);
+
+    List<Product> getProductsInCategory(Long categoryId);
 
 }

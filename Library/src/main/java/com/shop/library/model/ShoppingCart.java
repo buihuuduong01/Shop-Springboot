@@ -1,6 +1,5 @@
 package com.shop.library.model;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,7 +26,7 @@ public class ShoppingCart {
 
     private int totalItems;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
+    @OneToMany(cascade = CascadeType.DETACH, mappedBy = "cart")
     private Set<CartItem> cartItems;
 
     public ShoppingCart() {

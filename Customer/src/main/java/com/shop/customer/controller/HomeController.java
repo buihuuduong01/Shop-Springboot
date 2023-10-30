@@ -33,8 +33,21 @@ public class HomeController {
     private CustomerService customerService;
 
 
-    @GetMapping("/")
-    public String index(Model model){
+    @RequestMapping(value = {"/index", "/"}, method = RequestMethod.GET)
+    public String index(Model model, Principal principal, HttpSession session) {
+        if (principal != null) {
+            session.setAttribute("username", principal.getName());
+            Customer customer = customerService.findByUsername(principal.getName());
+            if (customer != null && customer.getCart() != null) {
+                ShoppingCart cart = customer.getCart();
+                session.setAttribute("totalItems", cart.getTotalItems());
+            } else {
+                session.setAttribute("totalItems", 0); // hoặc giá trị mặc định tương ứng
+            }
+        } else {
+            session.removeAttribute("username");
+            session.setAttribute("totalItems", 0); // hoặc giá trị mặc định tương ứng
+        }
         List<Category> categories = categoryService.findAll();
         List<ProductDto> productDtos = productService.findAll();
         model.addAttribute("categories", categories);
@@ -43,4 +56,3 @@ public class HomeController {
     }
 
 }
-

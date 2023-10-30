@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+<head th:replace="~{fragments::head}">
+
+  <script src="js\vendor\modernizr-2.8.3.min.js"></script>
+
+</head>
+<body>
+<!-- Add your site or application content here -->
+
+<!--pos page start-->
+<div class="pos_page">
+  <div class="container">
+    <!--pos page inner-->
+    <div class="pos_page_inner">
+      <!--header area -->
+      <div class="header_area">
+        <!--header top-->
+        <div th:replace="~{fragments::header-top}"></div>
+        <!--header top end-->
+
+        <!--header middel-->
+        <div th:replace="~{fragments::header-middel}"></div>
+        <!--header middel end-->
+        <div class="header_bottom">
+          <div class="row">
+            <div class="col-12">
+              <div class="main_menu_inner">
+                <div class="main_menu d-none d-lg-block">
+                  <nav>
+                    <ul>
+                      <li class="active"><a th:href="@{/}">Home</a>
+
+                      </li>
+                      <li><a th:href="@{/shop}">shop</a>
+
+                      </li>
+                      <li><a href="#">women</a>
+                        <div class="mega_menu">
+                          <div class="mega_top fix">
+                            <div class="mega_items">
+                              <h3><a href="#">Accessories</a></h3>
+                              <ul>
+                                <li><a href="#">Cocktai</a></li>
+                                <li><a href="#">day</a></li>
+                                <li><a href="#">Evening</a></li>
+                                <li><a href="#">Sundresses</a></li>
+                                <li><a href="#">Belts</a></li>
+                                <li><a href="#">Sweets</a></li>
+                              </ul>
+                            </div>
+                            <div class="mega_items">
+                              <h3><a href="#">HandBags</a></h3>
+                              <ul>
+                                <li><a href="#">Accessories</a></li>
+                                <li><a href="#">Hats and Gloves</a></li>
+                                <li><a href="#">Lifestyle</a></li>
+                                <li><a href="#">Bras</a></li>
+                                <li><a href="#">Scarves</a></li>
+                                <li><a href="#">Small Leathers</a></li>
+                              </ul>
+                            </div>
+                            <div class="mega_items">
+                              <h3><a href="#">Tops</a></h3>
+                              <ul>
+                                <li><a href="#">Evening</a></li>
+                                <li><a href="#">Long Sleeved</a></li>
+                                <li><a href="#">Shrot Sleeved</a></li>
+                                <li><a href="#">Tanks and Camis</a></li>
+                                <li><a href="#">Sleeveless</a></li>
+                                <li><a href="#">Sleeveless</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="mega_bottom fix">
+                            <div class="mega_thumb">
+                              <a href="#"><img src="img\banner\banner1.jpg" alt=""></a>
+                            </div>
+                            <div class="mega_thumb">
+                              <a href="#"><img src="img\banner\banner2.jpg" alt=""></a>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li><a href="#">men</a>
+                        <div class="mega_menu">
+                          <div class="mega_top fix">
+                            <div class="mega_items">
+                              <h3><a href="#">Rings</a></h3>
+                              <ul>
+                                <li><a href="#">Platinum Rings</a></li>
+                                <li><a href="#">Gold Ring</a></li>
+                                <li><a href="#">Silver Ring</a></li>
+                                <li><a href="#">Tungsten Ring</a></li>
+                                <li><a href="#">Sweets</a></li>
+                              </ul>
+                            </div>
+                            <div class="mega_items">
+                              <h3><a href="#">Bands</a></h3>
+                              <ul>
+                                <li><a href="#">Platinum Bands</a></li>
+                                <li><a href="#">Gold Bands</a></li>
+                                <li><a href="#">Silver Bands</a></li>
+                                <li><a href="#">Silver Bands</a></li>
+                                <li><a href="#">Sweets</a></li>
+                              </ul>
+                            </div>
+                            <div class="mega_items">
+                              <a href="#"><img src="img\banner\banner3.jpg" alt=""></a>
+                            </div>
+                          </div>
+
+                        </div>
+                      </li>
+
+                      <li>
+                        <a href="blog.html">blog</a>
+
+                      </li>
+                      <li><a href="contact.html">contact us</a></li>
+
+                    </ul>
+                  </nav>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--header end -->
+      <!--breadcrumbs area start-->
+      <div class="breadcrumbs_area">
+        <div class="row">
+          <div class="col-12">
+            <div class="breadcrumb_content">
+              <ul>
+                <li><a th:href="@{/}">home</a></li>
+                <li><i class="fa fa-angle-right"></i></li>
+                <li>shop</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--breadcrumbs area end-->
+
+      <!--pos home section-->
+      <div class=" pos_home_section shop_section shop_fullwidth">
+        <div class="row">
+          <div class="col-12">
+            <!--banner slider start-->
+            <div class="banner_slider fullwidht  mb-35">
+              <img src="img\banner\bannner10.jpg" alt="">
+            </div>
+            <!--banner slider start-->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <!--shop toolbar start-->
+            <div class="shop_toolbar mb-35">
+              <div class="list_button">
+                <ul class="nav" role="tablist">
+                  <li>
+                    <a class="active" data-toggle="tab" href="#large" role="tab" aria-controls="large" aria-selected="true"><i class="fa fa-th-large"></i></a>
+                  </li>
+
+                </ul>
+              </div>
+              <div class="page_amount">
+                <p>Showing 1–9 of 21 results</p>
+              </div>
+              <div class="select_option">
+                <form action="">
+                  <label>Danh mục sản phẩm</label>
+                  <select name="orderby" id="short" onchange="location = this.value;">
+                    <option th:each="categoryItem : ${categories}"
+                            th:value="${categoryItem.categoryId}"
+                            th:text="${categoryItem.categoryName + ' (' + categoryItem.numberOfProduct + ')'}">
+                    </option>
+                  </select>
+                </form>
+              </div>
+
+
+            </div>
+            <!--shop toolbar end-->
+          </div>
+        </div>
+
+        <!--shop tab product-->
+        <div class="new_product_area product_two">
+          <div class="row" >
+            <div class="col-12">
+              <div  style="text-align: center; margin: 0 auto;">
+                <h1 th:text="${category.name}"></h1>
+              </div>
+            </div>
+          </div>
+        <div class="shop_tab_product shop_fullwidth">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="large" role="tabpanel">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6" th:each="product : ${products}">
+                  <form th:action="@{/add-to-cart}" method="post">
+                    <div class="single_product">
+                      <div class="product_thumb">
+                        <a th:href="@{/find-product/{id}(id = ${product.id})}"><img th:src="'data:img/jpeg;base64,' + ${product.image}" alt=""></a>
+
+                        <div class="product_action">
+                          <input type="hidden" th:value="${product.id}" name="id">
+                          <input type="submit" class="cart" value="Add to Cart">
+                        </div>
+                      </div>
+                      <div class="product_content">
+                        <span class="product_price" th:text="  ${product.costPrice}+'VNĐ'"></span>
+                        <h3 class="product_title" th:text="${product.name}"><a href="single-product.html"></a></h3>
+                      </div>
+                      <div class="product_info">
+                        <ul>
+                          <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <!--shop tab product end-->
+
+        <!--pagination style start-->
+          <div class="pagination_style shop_page">
+            <div class="item_page">
+              <form action="#">
+                <label for="page_select">show</label>
+                <select id="page_select">
+                  <option value="1">9</option>
+                  <option value="2">10</option>
+                  <option value="3">11</option>
+                </select>
+
+              </form>
+            </div>
+            <div class="page_number">
+              <span>Pages: </span>
+              <ul>
+                <li>«</li>
+                <li class="current_number">1</li>
+                <li><a href="#">2</a></li>
+                <li>»</li>
+              </ul>
+            </div>
+          </div>
+        <!--pagination style end-->
+      </div>
+      <!--pos home section end-->
+    </div>
+    <!--pos page inner end-->
+  </div>
+</div>
+<!--pos page end-->
+
+<!--footer area start-->
+<div th:replace="~{fragments::footer}"></div>
+<!--footer area end-->
+
+<!-- modal area start -->
+<div th:replace="~{fragments::modal-start}"></div>
+<!-- modal area end -->
+
+
+
+
+<!-- all js here -->
+<div th:replace="~{fragments::script}"></div>
+</body>
+<script th:inline="javascript">
+  // function redirectToCategory(selectElement) {
+  //   var categoryId = selectElement.value;
+  //   var url = /*[[@{/products-in-category/}]]*/ '';
+  //   window.location.href = url + categoryId;
+  }
+</script>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<head th:replace="~{fragments::head}">
+
+    <script src="js\vendor\modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+<!-- Add your site or application content here -->
+
+<!--pos page start-->
+<div class="pos_page">
+    <div class="container">
+        <!--pos page inner-->
+        <div class="pos_page_inner">
+            <!--header area -->
+            <div class="header_area">
+                <!--header top-->
+                <div th:replace="~{fragments::header-top}"></div>
+                <!--header top end-->
+
+                <!--header middel-->
+                <div th:replace="~{fragments::header-middel}"></div>
+                <!--header middel end-->
+
+                <!--header bottom-->
+                <div th:replace="~{fragments::header-bottom}"></div>
+            </div>
+            <!--header end -->
+
+            <!--breadcrumbs area start-->
+            <div class="breadcrumbs_area">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb_content">
+                            <ul>
+                                <li><a href="index.html">home</a></li>
+                                <li><i class="fa fa-angle-right"></i></li>
+                                <li>my account</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--breadcrumbs area end-->
+
+            <!-- Start Maincontent  -->
+            <section class="main_content_area">
+                <div class="account_dashboard">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-3 col-lg-3">
+                            <!-- Nav tabs -->
+                            <div class="dashboard_tab_button">
+                                <ul role="tablist" class="nav flex-column dashboard-list">
+                                    <li><a href="#account-details" data-toggle="tab" class="nav-link">Thông tin cá nhân</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-9 col-lg-9">
+                            <!-- Tab panes -->
+                            <div class="tab-content dashboard_content">
+                                <div class="tab-pane fade" id="account-details">
+                                    <div class="login">
+                                        <div class="login_form_container">
+                                            <div class="text alert alert-warning" th:if="${error}">
+                                                <p th:text="${error}"></p>
+                                            </div>
+                                            <div class="account_login_form">
+                                                <form th:action="@{/update-profile}" method="post" name="signupForm"
+                                                      id="signupForm" th:object="${customer}">
+                                                    <label>First Name</label>
+                                                    <input type="text" name="first-name" id="lastname"
+                                                           th:field="*{firstName}" readonly>
+                                                    <label>Last Name</label>
+                                                    <input type="text" name="last-name" id="username"
+                                                           th:field="*{lastName}" readonly>
+                                                    <label>Email</label>
+                                                    <input type="text" name="email-name" th:field="*{username}"
+                                                           readonly>
+                                                    <label>Addresss</label>
+                                                    <input type="text" name="addresss" th:field="*{address}"
+                                                           th:placeholder="${customer.address != null} ? ${customer.address} : 'Enter your address'">
+                                                    <label>Phone</label>
+                                                    <input type="text" th:field="*{phoneNumber}"
+
+                                                           id="phoneNumber" name="phonenumber" maxlength="15"
+                                                           minlength="10">
+                                                    <label>Country</label><br>
+                                                    <select id="country-select">
+                                                        <option value="">-SELECT-</option>
+                                                        <option th:each="country : ${countries}"
+                                                                th:value="${country.id}"
+                                                                th:text="${country.name}"></option>
+                                                    </select>
+                                                    <br>
+                                                    <br>
+                                                    <label for="City">City</label><br>
+                                                    <select id="city" th:field="*{city}" name="country" required
+                                                            th:each="country: ${countries}">
+                                                        <option value="">-SELECT-</option>
+                                                        <option th:each="city : ${cities}"
+                                                                th:value="${city.id}"
+                                                                th:text="${city.name}"></option>
+                                                    </select>
+
+                                                    <br>
+                                                    <br>
+                                                    <label>Password</label>
+                                                    <input type="password" name="user-password">
+
+                                                    <div class="buttonWrapper">
+                                                        <button type="submit" id="submitButton"
+                                                                class="submitButton pure-button pure-button-primary">
+                                                            <span>Save</span>
+                                                        </button>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Maincontent  -->
+        </div>
+        <!--pos page inner end-->
+    </div>
+</div>
+<!--pos page end-->
+
+<!--footer area start-->
+<div th:replace="~{fragments::footer}"></div>
+<!--footer area end-->
+
+
+<!-- all js here -->
+<div th:replace="~{fragments::script}"></div>
+</body>
+</html>

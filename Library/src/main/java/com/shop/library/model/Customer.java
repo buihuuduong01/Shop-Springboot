@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -31,7 +30,7 @@ public class Customer {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "name", referencedColumnName = "id")
-    private com.shop.library.model.City city;
+    private City city;
     private String country;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "customer_role", joinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "customer_id"),
@@ -39,14 +38,14 @@ public class Customer {
     private Collection<Role> roles;
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
-    private com.shop.library.model.ShoppingCart cart;
+    private ShoppingCart cart;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Order> orders;
 
     public Customer() {
         this.country = "VN";
-        this.cart = new com.shop.library.model.ShoppingCart();
+        this.cart = new ShoppingCart();
         this.orders = new ArrayList<>();
     }
 
@@ -67,4 +66,7 @@ public class Customer {
                 ", orders=" + orders.size() +
                 '}';
     }
+
+
+
 }
