@@ -8,6 +8,7 @@ import com.shop.library.service.OrderService;
 import com.shop.library.service.ShoppingCartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,6 +23,7 @@ public class OrderServiceImpl implements OrderService {
     private final ShoppingCartService cartService;
 
     @Override
+    @Transactional
     public Order save(ShoppingCart shoppingCart) {
         Order order = new Order();
         order.setOrderDate(new Date());

@@ -67,15 +67,21 @@
                       <thead>
                       <tr>
 
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Total</th>
+                        <th>Ngày đặt</th>
+                        <th>Ngày giao</th>
+                        <th>trạng thái</th>
+                        <th>Tổng tiền</th>
                         <th>Action</th>
                       </tr>
                       </thead>
                       <tbody th:each="order : ${orders}">
                       <tr>
                         <td th:text="${order.orderDate}">[(${order.orderDate})]</td>
+                        <td  th:if="${order.accept == true}">
+                          <a href="#">
+                            [(${order.deliveryDate})]
+                          </a>
+                        </td>
                         <td>
                           <span class="success" th:text="${order.orderStatus}">[(${order.orderStatus})]</span>
                         </td>

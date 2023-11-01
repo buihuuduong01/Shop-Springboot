@@ -88,7 +88,7 @@
                                             </form>    
                                         </div>
                                         <div class="col-lg-6 col-md-6">
-                                            <form th:action="@{/add-order}" method="post" th:object="${shoppingCart}">
+                                            <form th:action="@{/orders}" method="post" th:object="${shoppingCart}">
                                                 <h3>Your order</h3> 
                                                 <div class="order_table table-responsive mb-30">
                                                     <table>
@@ -124,13 +124,7 @@
                                                 <div class="payment_method">
                                                    <div class="panel-default">
                                                         <input id="payment_defult" name="check_method" type="radio" data-target="createp_account">
-                                                        <label for="payment_defult" data-toggle="collapse" data-target="#collapsedefult" aria-controls="collapsedefult">PayPal <img src="img\visha\papyel.png" alt=""></label>
-
-                                                        <div id="collapsedefult" class="collapse one" data-parent="#accordion">
-                                                            <div class="card-body1">
-                                                               <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p> 
-                                                            </div>
-                                                        </div>
+                                                        <label for="payment_defult" data-toggle="collapse" data-target="#collapsedefult" aria-controls="collapsedefult">Tiền mặt </label>
                                                     </div>
                                                     <div class="order_button">
                                                         <button type="submit" >Đặt hàng</button>

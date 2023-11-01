@@ -11,5 +11,8 @@ import java.util.List;
 @Repository
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, Long> {
     @Query("select o from Order o where o.customer.id = ?1")
+
+
+
     List<Order> findAllByCustomerId(Long id);
 }

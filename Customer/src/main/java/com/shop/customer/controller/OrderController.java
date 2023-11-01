@@ -76,7 +76,7 @@ public class OrderController {
     }
 
 
-    @RequestMapping(value = "/add-order", method = {RequestMethod.POST})
+    @RequestMapping(value = "/orders", method = {RequestMethod.POST})
     public String createOrder(Principal principal,
                               Model model,
                               HttpSession session) {
